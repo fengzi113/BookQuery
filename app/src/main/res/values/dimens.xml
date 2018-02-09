@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout0dp">0dp</dimen>
+    <dimen name="layoutWeight3">3</dimen>
+    <dimen name="layoutWeight1">1</dimen>
+    <dimen name="margin8dp">8dp</dimen>
+    <dimen name="textSize16sp">16sp</dimen>
+    <dimen name="margin6dp">6dp</dimen>
+    <dimen name="textSize12sp">12sp</dimen>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BookQuery</string>
+    <string name="hint">请输入要查询的书籍</string>
+    <string name="buttonText">搜索</string>
+    <string name="no_network">No NetWork</string>
+    <string name="no_book_found">No Books Found</string>
+    <string name="no_input">No Input Found</string>
+</resources>
