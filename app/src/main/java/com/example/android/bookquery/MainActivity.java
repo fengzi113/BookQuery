@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 添加下面的语句，让 MainActivity 能在每次转屏后获取已经加载的 Loader
+        getLoaderManager().initLoader(0, bundle, MainActivity.this);
+
         //指示器隐藏
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressbar);
         progressBar.setVisibility(View.GONE);
@@ -57,15 +60,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         isConnected = activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
 
-        name = (EditText) findViewById(R.id.bookSearchName);
         emptyView = (TextView) findViewById(R.id.empty_view);
+        name = (EditText) findViewById(R.id.bookSearchName);
         //设置按钮监听器
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //隐藏键盘
-                InputMethodManager inputMethodManager = (InputMethodManager) getMainActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager inputMethodManager = (InputMethodManager) MainActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
                 inputMethodManager.hideSoftInputFromWindow(name.getWindowToken(), 0);
                 url = SAMPLE_URL + name.getText().toString();
                 bundle = new Bundle();
@@ -88,14 +91,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 }
             }
         });
-    }
-
-    public MainActivity() {
-        mainActivity = this;
-    }
-
-    public MainActivity getMainActivity() {
-        return this.mainActivity;
     }
 
     @Override
